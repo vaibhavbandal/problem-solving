@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+    function reverseString(str) {
+      let stack = [];
+      let ans = "";
+      for (const ch of str) {
+        if (ch === " ") {
+          while (stack.length !== 0) {
+            ans += stack.pop();
+          }
+          ans += " ";
+        } else {
+          stack.push(ch);
+        }
+    }
+        while (stack.length !== 0) {
+        ans += stack.pop();
+      }
+       return ans;
+    }
+
+    console.log(reverseString('India is my country'));
+    
+    function countOccurences(str){
+        let obj={};
+        for (let ch of str) {
+            ch=ch.toLowerCase();
+            if(ch===' '||ch==='?'||ch==='*') continue; 
+            if(obj.hasOwnProperty(ch)){
+                obj[ch]=obj[ch]+1;
+            }else{
+                obj[ch]=1;
+            }
+        }
+        for (const key in obj) {
+            if(obj[key]===1){
+                delete obj[key];
+            }
+        }
+        return obj; 
+    }
+
+
+    console.log(countOccurences('India is my country'));
+
+  </script>
+</html>
